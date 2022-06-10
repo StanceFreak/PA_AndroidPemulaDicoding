@@ -1,17 +1,60 @@
-<ScrollView
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@color/white_grey"
-    tools:context=".ui.fragment.FavoriteFragment">
+    android:layout_height="match_parent">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_favorite"
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/white_grey"
+        tools:context=".ui.fragment.FavoriteFragment">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_favorite"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:listitem="@layout/recycler_main"/>
+
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/layout_error"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:listitem="@layout/recycler_main"/>
+        android:layout_centerInParent="true"
+        android:background="@color/white_grey"
+        android:padding="15dp"
+        android:orientation="vertical">
 
-</ScrollView>
+        <ImageView
+            android:id="@+id/iv_error"
+            android:layout_width="wrap_content"
+            android:layout_height="270dp"
+            android:src="@drawable/empty_data"/>
+
+        <TextView
+            android:id="@+id/tv_error_head"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:textSize="19sp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:text="@string/title_no_fav"/>
+
+        <TextView
+            android:id="@+id/tv_error_subhead"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="7dp"
+            android:textSize="16sp"
+            android:text="@string/subtitle_no_fav"/>
+
+    </LinearLayout>
+
+</RelativeLayout>
