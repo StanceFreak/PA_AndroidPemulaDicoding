@@ -9,7 +9,7 @@ import com.example.subimisidicoding.databinding.RecyclerMainBinding
 import com.example.subimisidicoding.ui.activity.DetailActivity
 import com.squareup.picasso.Picasso
 
-class AdapterHome(val data : ArrayList<Film>) : RecyclerView.Adapter<AdapterHome.HomeViewHolder>() {
+class AdapterHome(private val data : ArrayList<Film>) : RecyclerView.Adapter<AdapterHome.HomeViewHolder>() {
 
     class HomeViewHolder(private val binding: RecyclerMainBinding) : RecyclerView.ViewHolder(binding.root) {
 
@@ -35,7 +35,11 @@ class AdapterHome(val data : ArrayList<Film>) : RecyclerView.Adapter<AdapterHome
             val intentData = Film(
                 data.title,
                 data.poster,
-                data.desc
+                data.desc,
+                data.sutaradara,
+                data.pemeran,
+                data.tanggalRilis,
+                data.genre
             )
             i.putExtra(DetailActivity.FILM_EXTRAS, intentData)
             holder.itemView.context.startActivity(i)
