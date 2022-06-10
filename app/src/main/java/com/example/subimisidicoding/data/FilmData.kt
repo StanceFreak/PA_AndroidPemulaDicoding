@@ -4,7 +4,7 @@ import com.example.subimisidicoding.R
 
 object FilmData {
 
-    private val listTitle = arrayOf(
+    private val listTitle = arrayListOf(
             "Madu Murni (2022)",
             "Keluarga Cemara 2 (2022)",
             "My Sassy Girl (2022)",
@@ -31,7 +31,7 @@ object FilmData {
 
     )
 
-    private val listFilmDesc = arrayOf(
+    private val listFilmDesc = arrayListOf(
             "Mustaqim (Ammar Zoni) mantan guru ngaji bekerja sebagai penagih hutang dengan harapan mendapat penghasilan lebih banyak. Tapi, Murni (Irish Bella), isterinya, tak mau menerima pemberian uang dari suaminya karena tidak setuju dengan pekerjaan suaminya yang penuh resiko dunia akhirat. Atas saran rekannya Rojak (Tanta Ginting), Mustaqim kawin lagi dengan Yati (Aulia Sarah).",
             "Ara menjadi kesepian ketika Keluarga Cemara tumbuh. Abah mendapat pekerjaan baru, sehingga cukup sibuk mengurusi pekerjaannya dan tak setiap hari bisa antar jemput. Emak mencari sampingan untuk agar keluarganya punya pendapatan tambahan dan juga tabungan. Sedangkan Euis masuk masa pubernya. Ia ingin punya privacy dan tak mau sekamar lagi dengan Ara. Perjalanan Abah, Emak, Euis, Ara, dan Agil menemukan makna keluarga.",
             "Gian (Jefri Nichol) seharusnya pergi ke rumah tantenya karena sang tante ingin menjodohkan Gian dengan mantan kekasih almarhum anaknya. Namun sejak di stasiun hingga di dalam gerbong kereta, Gian terjebak dalam situasi harus mengurus gadis mabuk bernama Sisi (Tiara Andini) hingga harus membawanya ke hotel. Terjadi kesalahpahaman antara Gian dan Sisi namun justru kesalahpahaman itulah yang membawa mereka ke dalam pertemuan demi pertemuan selanjutnya, membentuk sebuah kebersamaan di mana Gian menemukan dirinya tak bisa dan tak mau lepas lagi dari Sisi meski Sisi seringkali membullynya. Sisi yang punya sisi muram akibat masa lalunya pun menemukan kebahagiaan setiap kali bersama Gian. Sayangnya Sisi selalu merasa ia tidak pantas berbahagia sementara Gian selalu berusaha menuruti kemauan Sisi, seaneh apapun permintaan Sisi, demi bisa membawa Sisi lepas dari kesedihan yang kerap Gian temukan di antara segala tingkah Sisi yang konyol.",
@@ -44,14 +44,70 @@ object FilmData {
             "Irma (Cut Meyriska), wanita karir yang sukses, banyak menolak pinangan meski usianya sudah cukup dewasa. Alasannya: ingin tetap merawat ayahnya (Indro Warkop) yang dia anggap sebagai pintu menuju surga semenjak Ibunya wafat. Suatu hari tanpa sengaja dia bertemu dengan Yusuf (Roger Danuarta), fotografer, laki-laki dari masa lalunya yang menghilang tanpa kabar."
     )
 
+    private val listSutradara = arrayListOf(
+        "Monty Tiwa",
+        "Ismail Basbeth",
+        "Fajar Bustomi",
+        "Deddy Mizwar",
+        "Guntur Soeharjanto",
+        "Garin Nugroho, Hestu Saputra",
+        "Ernest Prakasa",
+        "Fajar Nugros, Bayu Skak",
+        "Ifa Isfansyah, Eddie Cahyono",
+        "Fajar Bustomi"
+    )
+
+    private val listPemeran = arrayListOf(
+        "Irish Bella, Ammar Zoni, Aulia Sarah",
+        "Widuri Puteri, Ringgo Agus Rahman, Nirina Zubir, Adhisty Zara, Niloufer Bahalwan",
+        "Tiara Andini, Jefri Nichol",
+        "Tora Sudiro, Cut Beby Tshabina, Deddy Mizwar",
+        "Titi Kamal, Samuel Rizal, Marcella Zalianty, Dea Panendra",
+        "Ariel Tatum, Dede Ramandei, Elias Fortunatus Padwa, Arnol",
+        "Sheila Dara Aisha, Ferry Salim, Jenny Zhang, Morgan Oey, Dion Wiyoko, Tansri Kemala, Eriska Rein",
+        "Bayu Skak, Joshua Suherman, Brandon Salim, Tutus Thomson, Anya Geraldine",
+        "Mathias Muchus, Maudy Koesnaedi, Maudy Ayunda, Putri Marino, Baskara Mahendra",
+        "Cut Meyriska, Roger Danuarta, Indro Warkop"
+    )
+
+    private val listTanggalRilis = arrayListOf(
+        "Kamis, 30 Juni 2022",
+        "Kamis, 23 Juni 2022",
+        "Kamis, 23 Juni 2022",
+        "Kamis, 16 Juni 2022",
+        "Kamis, 30 Desember 2021",
+        "Kamis, 23 Desember 2021",
+        "Kamis, 23 Desember 2021",
+        "Kamis, 25 November 2021",
+        "Kamis, 18 November 2021",
+        "Kamis, 11 November 2021",
+    )
+
+    private val listGenre = arrayListOf(
+        "Drama, Comedy",
+        "Drama",
+        "Drama",
+        "Drama, Comedy",
+        "Horror",
+        "Drama",
+        "Drama, Comedy, Thriller",
+        "Comedy",
+        "Drama",
+        "Drama"
+    )
+
     val listData: ArrayList<Film>
         get() {
             val list = arrayListOf<Film>()
             for (position in listTitle.indices) {
                 val film = Film(
-                        title = listTitle[position],
-                        poster = listPoster[position],
-                        desc = listFilmDesc[position]
+                    title = listTitle[position],
+                    poster = listPoster[position],
+                    desc = listFilmDesc[position],
+                    sutaradara = listSutradara[position],
+                    pemeran = listPemeran[position],
+                    tanggalRilis = listTanggalRilis[position],
+                    genre = listGenre[position],
                 )
                 list.add(film)
             }

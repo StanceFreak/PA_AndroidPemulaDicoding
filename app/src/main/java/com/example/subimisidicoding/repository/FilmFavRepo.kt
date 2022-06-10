@@ -1,0 +1,17 @@
+package com.example.subimisidicoding.repository
+
+import androidx.lifecycle.LiveData
+import com.example.subimisidicoding.local.FilmFavDao
+import com.example.subimisidicoding.local.FilmFavEntity
+
+class FilmFavRepo(private val dao: FilmFavDao) {
+    fun getFavorite() : LiveData<List<FilmFavEntity>> = dao.getFavorite()
+
+    suspend fun addFav(bookFavEntity: FilmFavEntity) {
+        dao.addFav(bookFavEntity)
+    }
+
+    suspend fun deleteFav(id: String) {
+        dao.deleteFav(id)
+    }
+}

@@ -7,5 +7,9 @@ import kotlinx.parcelize.Parcelize
 data class Film(
         val title: String,
         val poster: Int,
-        val desc: String
+        val desc: String,
+        val sutaradara: String,
+        val pemeran: String,
+        val tanggalRilis: String,
+        val genre: String
 ) : Parcelable
