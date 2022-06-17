@@ -10,13 +10,27 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 @Entity(tableName = "fav_table")
 data class FilmFavEntity(
-        @PrimaryKey(autoGenerate = true)
+//        @PrimaryKey(autoGenerate = true)
+//        @NonNull
+//        val id: Int?,
+        @PrimaryKey
         @NonNull
-        val id: Int,
+        @ColumnInfo(name = "movieId")
+        val movieId: Int?,
+        @ColumnInfo(name = "isFavorite")
+        val isFavorite: Boolean?,
         @ColumnInfo(name = "title")
-        val title: String,
+        val title: String?,
         @ColumnInfo(name = "poster")
-        val poster: Int,
+        val poster: Int?,
         @ColumnInfo(name = "desc")
-        val desc: String
+        val desc: String?,
+        @ColumnInfo(name = "sutaradara")
+        val sutaradara: String?,
+        @ColumnInfo(name = "pemeran")
+        val pemeran: String?,
+        @ColumnInfo(name = "tanggalRilis")
+        val tanggalRilis: String?,
+        @ColumnInfo(name = "genre")
+        val genre: String?
 ) : Parcelable

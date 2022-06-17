@@ -4,6 +4,7 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
+import com.example.subimisidicoding.data.Film
 import com.example.subimisidicoding.local.FilmFavDatabase
 import com.example.subimisidicoding.local.FilmFavEntity
 import com.example.subimisidicoding.repository.FilmFavRepo
@@ -15,10 +16,12 @@ class FilmFavViewModel(application: Application) : AndroidViewModel(application)
     val getFavorite : LiveData<List<FilmFavEntity>>
 
     init {
-        val bookHelper = FilmFavDatabase.getDatabase(application).dao()
-        repo = FilmFavRepo(bookHelper)
+        val movieHelper = FilmFavDatabase.getDatabase(application).dao()
+        repo = FilmFavRepo(movieHelper)
         getFavorite = repo.getFavorite()
     }
+
+    fun getFavoriteTest() : LiveData<List<FilmFavEntity>> = repo.getFavorite()
 
     fun addFav(entity: FilmFavEntity) {
         viewModelScope.launch {
@@ -26,10 +29,16 @@ class FilmFavViewModel(application: Application) : AndroidViewModel(application)
         }
     }
 
-    fun deleteFav(id: String) {
+    fun deleteFav(id: Int) {
         viewModelScope.launch {
             repo.deleteFav(id)
         }
     }
+
+    fun getFavoriteById(id: Int) : LiveData<FilmFavEntity> = repo.getFavoriteById(id)
+
+
+    fun getMovieById(movieId: Int) : LiveData<Film> = repo.getMovieById(movieId)
+
 
 }

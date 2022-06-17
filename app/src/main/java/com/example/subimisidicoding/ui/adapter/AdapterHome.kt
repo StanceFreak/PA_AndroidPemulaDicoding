@@ -32,16 +32,17 @@ class AdapterHome(private val data : ArrayList<Film>) : RecyclerView.Adapter<Ada
 
         holder.itemView.setOnClickListener {
             val i = Intent(holder.itemView.context, DetailActivity::class.java)
-            val intentData = Film(
-                data.title,
-                data.poster,
-                data.desc,
-                data.sutaradara,
-                data.pemeran,
-                data.tanggalRilis,
-                data.genre
-            )
-            i.putExtra(DetailActivity.FILM_EXTRAS, intentData)
+//            val intentData = Film(
+//                data.movieId,
+//                data.title,
+//                data.poster,
+//                data.desc,
+//                data.sutaradara,
+//                data.pemeran,
+//                data.tanggalRilis,
+//                data.genre
+//            )
+            i.putExtra(DetailActivity.FILM_EXTRAS, data.movieId)
             holder.itemView.context.startActivity(i)
         }
     }
