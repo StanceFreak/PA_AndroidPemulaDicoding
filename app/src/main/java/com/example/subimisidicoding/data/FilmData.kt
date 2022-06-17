@@ -4,6 +4,20 @@ import com.example.subimisidicoding.R
 
 object FilmData {
 
+    private val movieId = intArrayOf(
+            110,
+            111,
+            112,
+            113,
+            114,
+            115,
+            116,
+            117,
+            118,
+            119,
+            120
+    )
+
     private val listTitle = arrayListOf(
             "Madu Murni (2022)",
             "Keluarga Cemara 2 (2022)",
@@ -101,6 +115,7 @@ object FilmData {
             val list = arrayListOf<Film>()
             for (position in listTitle.indices) {
                 val film = Film(
+                    movieId = movieId[position],
                     title = listTitle[position],
                     poster = listPoster[position],
                     desc = listFilmDesc[position],
