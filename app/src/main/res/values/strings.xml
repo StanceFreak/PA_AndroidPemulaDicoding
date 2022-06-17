@@ -14,4 +14,6 @@
     <string name="detail_release_date">movie_release_date</string>
     <string name="detail_genre">movie_genre</string>
     <string name="tv_detail_desc">movie_desc</string>
+    <string name="add_favorites">Add to favorites</string>
+    <string name="share_movie">Share this movie</string>
 </resources>

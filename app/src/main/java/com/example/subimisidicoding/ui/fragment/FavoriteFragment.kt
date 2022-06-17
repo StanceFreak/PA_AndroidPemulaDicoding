@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.subimisidicoding.databinding.FragmentFavoriteBinding
 import com.example.subimisidicoding.local.FilmFavEntity
@@ -36,6 +37,7 @@ class FavoriteFragment : Fragment() {
 
     private fun setupRecycler() {
         favAdapter = AdapterFavorite()
+
         binding.rvFavorite.apply {
             layoutManager = LinearLayoutManager(
                 requireContext(),
@@ -46,20 +48,21 @@ class FavoriteFragment : Fragment() {
             setHasFixedSize(true)
         }
 
-        viewModel = ViewModelProvider(this).get(FilmFavViewModel::class.java)
-        Log.d("test", viewModel.getFavorite.toString())
-
-        if (viewModel.getFavorite.value != null) {
-            binding.layoutError.visibility = View.GONE
-            binding.rvFavorite.visibility = View.VISIBLE
-            viewModel.getFavorite.observe(viewLifecycleOwner, Observer {
-                favAdapter.setFavorite(it as ArrayList<FilmFavEntity>)
-            })
-        }
-        else {
-            binding.layoutError.visibility = View.VISIBLE
-            binding.rvFavorite.visibility = View.GONE
-        }
+        viewModel = ViewModelProviders.of(this).get(FilmFavViewModel::class.java)
+        viewModel.getFavorite.observe(viewLifecycleOwner, Observer {
+            favAdapter.setFavorite(it)
+        })
+//        if (viewModel.getFavorite.value != null) {
+//            binding.layoutError.visibility = View.GONE
+//            binding.rvFavorite.visibility = View.VISIBLE
+//            viewModel.getFavorite.observe(viewLifecycleOwner, Observer {
+//                favAdapter.setFavorite(it)
+//            })
+//        }
+//        else {
+//            binding.layoutError.visibility = View.VISIBLE
+//            binding.rvFavorite.visibility = View.GONE
+//        }
     }
 
 }

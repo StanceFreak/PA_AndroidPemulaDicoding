@@ -9,12 +9,12 @@ import com.squareup.picasso.Picasso
 
 class AdapterFavorite() : RecyclerView.Adapter<AdapterFavorite.FavViewHolder>() {
 
-    private val data: ArrayList<FilmFavEntity> = arrayListOf()
+    private val data = ArrayList<FilmFavEntity>()
 
     class FavViewHolder(private val binding: RecyclerMainBinding): RecyclerView.ViewHolder(binding.root) {
 
         fun bind (entity: FilmFavEntity) {
-            Picasso.get().load(entity.poster).into(binding.ivPoster)
+            entity.poster?.let { Picasso.get().load(it).into(binding.ivPoster) }
             binding.tvTitle.text = entity.title
             binding.tvDesc.text = entity.desc
         }
@@ -38,7 +38,7 @@ class AdapterFavorite() : RecyclerView.Adapter<AdapterFavorite.FavViewHolder>() 
         return this.data.size
     }
 
-    fun setFavorite(favList: ArrayList<FilmFavEntity>) {
+    fun setFavorite(favList: List<FilmFavEntity>) {
         this.data.clear()
         this.data.addAll(favList)
         notifyDataSetChanged()
