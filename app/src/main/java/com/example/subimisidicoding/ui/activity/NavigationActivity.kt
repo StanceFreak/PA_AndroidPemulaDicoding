@@ -1,7 +1,10 @@
 package com.example.subimisidicoding.ui.activity
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import androidx.fragment.app.Fragment
 import com.example.subimisidicoding.R
 import com.example.subimisidicoding.databinding.ActivityNavigationBinding
@@ -24,6 +27,23 @@ class NavigationActivity : AppCompatActivity() {
         }
 
         setContentView(binding.root)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_home, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val id = item.itemId
+
+        if (id == R.id.item_profile) {
+            val i = Intent(this, ProfileActivity::class.java)
+            startActivity(i)
+            return true
+        }
+
+        return super.onOptionsItemSelected(item)
     }
 
     private fun setupBotNav() {
