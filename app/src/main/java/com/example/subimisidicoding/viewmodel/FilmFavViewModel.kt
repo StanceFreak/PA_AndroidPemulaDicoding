@@ -3,6 +3,7 @@ package com.example.subimisidicoding.viewmodel
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.subimisidicoding.data.Film
 import com.example.subimisidicoding.local.FilmFavDatabase
@@ -21,8 +22,6 @@ class FilmFavViewModel(application: Application) : AndroidViewModel(application)
         getFavorite = repo.getFavorite()
     }
 
-    fun getFavoriteTest() : LiveData<List<FilmFavEntity>> = repo.getFavorite()
-
     fun addFav(entity: FilmFavEntity) {
         viewModelScope.launch {
             repo.addFav(entity)
@@ -35,10 +34,6 @@ class FilmFavViewModel(application: Application) : AndroidViewModel(application)
         }
     }
 
-    fun getFavoriteById(id: Int) : LiveData<FilmFavEntity> = repo.getFavoriteById(id)
-
-
-    fun getMovieById(movieId: Int) : LiveData<Film> = repo.getMovieById(movieId)
-
+    fun getFavoriteById(id: Int) = repo.getFavoriteById(id)
 
 }

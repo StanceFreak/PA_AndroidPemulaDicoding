@@ -19,10 +19,7 @@ interface FilmFavDao {
     @Query("SELECT * FROM fav_table")
     fun getFavorite() : LiveData<List<FilmFavEntity>>
 
-    @Query("SELECT * FROM fav_table WHERE movieId = :id")
-    fun getFavoriteById(id: Int) : LiveData<FilmFavEntity>
-
     @Query("SELECT * FROM fav_table WHERE movieId = :movieId")
-    fun getMovieById(movieId: Int) : LiveData<Film>
+    fun getFavoriteById(movieId: Int) : LiveData<FilmFavEntity>
 
 }

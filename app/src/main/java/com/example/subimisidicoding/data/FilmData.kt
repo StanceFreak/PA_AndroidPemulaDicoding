@@ -5,17 +5,16 @@ import com.example.subimisidicoding.R
 object FilmData {
 
     private val movieId = intArrayOf(
-            110,
-            111,
-            112,
-            113,
-            114,
-            115,
-            116,
-            117,
-            118,
-            119,
-            120
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
     )
 
     private val listTitle = arrayListOf(
